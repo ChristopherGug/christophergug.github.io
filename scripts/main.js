@@ -5,11 +5,7 @@
 
 
 function addEventToList(date) {
-    let eventList = $("#eventList")
-    sessionStorage.setItem("event", "wegwefwef");
-    let event= document.createElement("h1");
-    event.textContent = "ergeryugbheriu";
-    eventList.append(event);
+    sessionStorage.setItem("event", date + " - " + $("#eventNameId").textContent);
 }
 
 // Function: closePopup
@@ -328,8 +324,13 @@ function searchWebsite() {
         console.log("Called DisplayStatisticsPage...")
     }
 
-    function DisplayEventsPlanningPage()
+    function DisplayEventPlanningPage()
     {
+        let eventsList= $("#eventList");
+        let event = sessionStorage.getItem("event");
+
+        eventsList.append(event);
+
         console.log("Called DisplayEventsPlanningPage...")
     }
 
@@ -352,6 +353,7 @@ function searchWebsite() {
             case "contact": return DisplayContactPage;
             case "statistics": return DisplayStatisticsPage;
             // case "edit": return DisplayEditPage;
+            case "event_planning": return DisplayEventPlanningPage;
             case "404": return Display404Page;
             default:
                 console.error("ERROR: callback function does not exist " + router.ActiveLink);
