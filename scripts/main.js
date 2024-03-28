@@ -3,12 +3,21 @@
 /* Student ID: 100852340, 100894383 */
 /* Date of Completion: 01-27-2024 */
 
+
+function addEventToList(date) {
+    let eventList = $("#eventList")
+    sessionStorage.setItem("event", "wegwefwef");
+    let event= document.createElement("h1");
+    event.textContent = "ergeryugbheriu";
+    eventList.append(event);
+}
+
 // Function: closePopup
 // Description: Closes the popup by setting its display property to 'none'.
 // Parameters: None
 // Return Value: None
 function closePopup() {
-    var popupContainer = document.getElementById('popup-container');
+    let popupContainer = document.getElementById('popup-container');
     if (popupContainer) {
         popupContainer.style.display = 'none';
     }
@@ -319,6 +328,11 @@ function searchWebsite() {
         console.log("Called DisplayStatisticsPage...")
     }
 
+    function DisplayEventsPlanningPage()
+    {
+        console.log("Called DisplayEventsPlanningPage...")
+    }
+
     function Display404Page(){
         console.log("Called Display404Page()...")
     }
@@ -414,7 +428,13 @@ function searchWebsite() {
         // Check login status when the app starts
         CheckLogin();
     }
-
+    let list = document.getElementById("daysList").getElementsByTagName("li");
+    for ( let i = 0; i < list.length; i++ ) {
+        list[i].addEventListener( 'click', (e) => {
+            console.log(list[i].textContent + " was clicked");
+            $('#eventModal').show();
+        })
+    }
     window.addEventListener("load", Start)
 })()
 
