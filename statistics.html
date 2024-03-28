@@ -1,0 +1,88 @@
+<!-- statistics.html-->
+<!-- Authors: Christopher Gugelmeier, Andrei Koshelev -->
+<!-- Student ID: 100852340, 100894383-->
+<!-- Date of Completion: 03-26-2024-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="content/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    /* Custom styling to reduce spacing */
+    .container-custom {
+        padding-top: 0; /* Eliminate top padding */
+        padding-bottom: 20px; /* Adjust the bottom padding as needed */
+    }
+    .header-custom {
+        margin-top: 0; /* Eliminate top margin */
+        margin-bottom: 10px; /* Reduce margin below the header */
+    }
+    .chart-size {
+        width: 100% !important; /* Makes the chart width responsive */
+        max-width: 500px; /* Maximum chart width */
+        aspect-ratio: 1.6; /* Sets the width to height ratio, adjust as needed */
+        margin: auto; /* Centers the chart if it's smaller than the parent container */
+    }
+    /* Ensure the <header> element does not contribute to the gap */
+    header {
+        margin-bottom: 0; /* Eliminate bottom margin */
+        padding: 0; /* Eliminate padding */
+    }
+</style>
+
+</head>
+<body>
+
+<header></header>
+
+<div class="container container-custom">
+    <div class="header header-custom">
+        <h2>Visitor Statistics</h2>
+    </div>
+	
+	<canvas id="StatisticsChart" class="chart-size"></canvas>
+	
+	<script>
+	const xValues = ["January", "February", "March", "April", "May"];
+	const yValues = [21, 35, 86, 18, 47];
+	const barColors = ["#EA7B63", "#6DD53D", "#42CDC9", "#8652E0", "#E05297"];
+
+	new Chart("StatisticsChart", {
+	  type: "doughnut",
+	  data: {
+		labels: xValues,
+		datasets: [{
+		  backgroundColor: barColors,
+		  data: yValues
+		}]
+	  },
+	  options: {
+		title: {
+		  display: true,
+		  text: "Harmony Hub Visitor Statistics 2024"
+		}
+	  }
+	});
+	</script>
+	<br/><br/>
+	<br/><br/>
+</div>
+
+<footer class="footer">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/contact">Contact</a>
+</footer>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="scripts/main.js"></script>
+<script src="./scripts/statistics.ts"></script>
+
+</body>
+</html>
